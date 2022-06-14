@@ -1,0 +1,11 @@
+=== Tests effectués
+
+
+==== Tests
+Des tests unitaires ont été implémentés pour tester les fonctionnalités de bases.
+Cependant la partie web n'ayant pas fait de tests, sélénium n'a pas été utilisé.
+
+
+==== Automatisation
+Les tests ont été automatisés grace a gitlab CI (cf. module tests).
+

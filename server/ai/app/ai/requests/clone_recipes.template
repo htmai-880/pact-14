@@ -1,0 +1,9 @@
+MATCH (r: Recipe)
+WHERE id(r) = ${recipe_id}
+CREATE (rr:Recipe:CreatedByAI {ai_creation_datetime:date(), title:r.title, id:r.id, picture_link:r.picture_link, instructions:r.instructions, provenance:r.provenance})
+WITH r, rr
+MATCH (r)-[h:HAS_INGREDIENT]->(i:Ingredient), (substitute:Ingredient)
+WHERE i.name = "${ing_to_replace}" AND substitute.name = "${substitute}"
+CREATE (rr)-[:HAS_INGREDIENT {option:h.option, preparation:h.preparation, quantity_denominator:h.quantity_denominator, quantity_numerator:h.quantity_numerator, unit:h.unit}]->(substitute)
+WITH r, rr
+RETURN id(rr) AS id, rr.title AS title

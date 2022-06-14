@@ -1,0 +1,10 @@
+MATCH (u:User {email:"${user_email}"})
+WITH u AS user
+MATCH (e:Ingredient)
+WHERE NOT (user)-[:OWNS_INGREDIENT]->(e)
+WITH collect(e) as excluded
+MATCH (r:Recipe)-[:HAS_INGREDIENT]->(i:Ingredient)
+WHERE NOT r:CreatedByAI
+WITH excluded, r, collect(i) as ingredients
+WHERE NONE (i in ingredients where i in excluded)
+RETURN id(r) as id, r.title AS title SKIP ${start} LIMIT ${limit}

@@ -1,0 +1,8 @@
+flask-restful==0.3.8
+sentry-sdk[flask]==1.0.0
+py2neo==2021.0.1
+pathlib==1.0.1
+cython==0.29.22
+numpy
+scipy
+gensim==4.0.1

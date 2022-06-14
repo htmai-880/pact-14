@@ -1,0 +1,88 @@
+=== Plans de test (PAN2+)
+// Cette section rassemble les plans de test du proto allégé et du proto final.
+// C’est une liste des tests à effectuer, sous la forme, pour chaque test :
+//   - situation/contexte
+//   - action ou entrée à appliquer
+//   - réaction ou sortie attendue.
+
+Le projet, de part son ampleur ainsi que les différents membres qui y sont
+impliqués, va demander de bien tester chaque bloc pour ne pas avoir de
+régression ou plus généralement pour gagner un temps précieux.
+
+==== Different types de tests
+//   unit tests : tester le fonctionnement
+//   regression : tester l'amont
+//   integration : tester l'aval
+//   prefs : performances sont acceptables
+//   end2end : tester que le projet marche
+
+Les tests seront découpés en 5 parties qui sont spécifiées ci-dessous.
+
+===== Tests unitaires (unit)
+Ces tests permettent de tester le fonctionnement d'un bloc précis isolé du
+reste du projet. Ils sont très utiles pour vérifier que le code ne contient
+pas d'erreurs ou plus généralement pour permettre une review des PRs plus rapide.
+
+===== Tests de non regression (regressive)
+Ces tests sont centraux dans tout projet. Ils permettent de s'assurer que
+chaque ajout de fonctionnalités n'en supprime pas, ou pire, crée une exception
+quelque part. C'est le filet de sécurité qui permet de faciliter l'audit de
+code ainsi que des updates plus sûres.
+
+==== Tests d'intégration (integration)
+Ces tests sont là pour vérifier que plusieurs modules fonctionnent comme prévu
+entre eux. Ils sont à mi-chemin entre tests unitaires et tests de bout en
+bout.
+
+==== Tests de performances (perfs)
+Les performances du produit doivent aussi être testées (temps de réponse de
+l'application, accès à la base de donnée, ect...). Ces tests sont assez
+importants et des temps de réponse maximums devront être définis.
+
+==== Test de bout en bout (end2end)
+Le but final est d'avoir un livrable fonctionnel, il faudra donc vérifier que
+le service est fonctionnel et que tout les blocs fonctionnent proprement entre
+eux.
+
+===== Les outils de tests
+
+De nombreux outils permettent de tester les services, il n'est pas ici question
+de tous les énumérer mais de citer les pistes envisagées pour répondre aux mieux
+aux exigences en terme de tests tout en automatisant au maximum ceux-ci car
+un test qui n'est pas exécuté régulièrement n'a aucun intérêt.
+
+==== Selenium
+Pour tous les tests UI, Selenium est un incontournable, il permet d'automatiser
+des simulations d'actions et de détecter si le service répond de manière
+appropriée. La version web <<SeleniumWebDriver>> est très facile d'utilisation
+avec son API python. Il y a aussi une version non officielle permettant de faire
+des tests sur une application android <<Selendroid>>.
+
+Les tests qui y sont associés sont plutôt les tests end2end ou d'intégration
+même s’ils peuvent aussi êtres utilisés comme outils pour tests unitaires pour
+les parties UI du service.
+
+==== Gitlab CI
+Afin de faire tourner les tests de manière fréquente, des pipelines peuvent être
+mis en place sur gitlab pour faire tourner automatiquement des tests lors de la
+soumission de pull requests <<GitlabCICD>>.
+
+Ici on parle plutôt de tests rapides comme les tests unitaires ainsi que les
+tests de non régression. Cela permet d'éviter de nombreux problèmes.
+
+==== Pytest
+Pour tester une application ma manière efficiente et puissante, il est important
+d'utiliser une librairie à la fois simple et comportant de nombreuses
+fonctionnalités. Il sera alors simple d'implémenter beaucoup de tests permettant
+une couverture optimale du code. Pytest est une librairie python ayant ces
+caractéristiques <<Pytest>> et permettant donc une unicité de la démarche de tests.
+
+==== Sonar
+En plus d'écrire des tests, un service nommé sonar permet d'analyser du code et
+donner un rapport sur sa qualité ou encore de détecter de possibles erreurs.
+Ce service se déploie sous forme de serveur. SonarQube <<SonarQube>> est une de
+ses implémentations dont la partie gratuite serra suffisante pour ce projet mais
+il demande qu'un serveur soit mis en place.
+SonarCloud <<SonarCloud>> fait aussi partie des offres gratuites. Il a l'avantage
+de ne pas nécessiter le set up d'un serveur mais ne fonctionne que sur les
+projets publics.

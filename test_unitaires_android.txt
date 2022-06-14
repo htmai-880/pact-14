@@ -1,0 +1,65 @@
+Tests unitaires Android
+
+Pour tout les tests, tester si une entrée invalide est reconnue comme telle et ne fait pas crasher l'appli, et tester si une entrée valide entraîne 
+
+# Gestion des stocks
+
+## Editer le frigo (ajouter / enlever des stocks)
+
+Tests conversion java-gson
+
+ENTREES: fichier JSON ingrédient
+SORTIES: Affichage du nouvel ingrédient et passage de l'objet gson à l'objet java
+
+ENTREES: objet java ingrédient
+SORTIE: Affichage du gson correspondant
+
+Test envoi d'une requete avec un fichier gson (ajout d'un ingrédient par ex)
+
+ENTREES: fichier gson à envoyer
+SORTIES: affichage du succès de la requete (http code 201/202)
+Devra être fait pour chaque API
+
+Tests de requetes GET, POST, PATCH, DELETE, etc.
+
+## Consulter le frigo
+
+Tester localement l'affichage du frigo
+- layouts
+- parsing
+
+Test @GET contenu du frigo
+
+# Recherche
+
+## Recherche de recette
+
+Tester le bon envoi de la recherche
+-formatage
+-contenu
+-reception
+
+Tester l'affichage des résultats de la recherche
+- layouts
+- parsing
+
+# Profil
+
+## Saisie recette
+
+Tester le bon formatage & contenu des saisies
+ENTREES: Strings/Checkboxes/... (pour les noms, les catégories, les ingrédients, la description, etc.)
+SORTIES: gson recette
+
+Tester l'ajout/update de la recette
+
+## Connexion / Déconnexion
+
+Test de login
+ENTREES: USER, (String) Username s'il n'est pas stocké localement dans l'application, (String) mdp
+SORTIES: CLIENT-SERVEUR, requete http avec un JSON ({"userName":..., "mdp":...}) pour la BDD UserInfo
+
+## Editer le profil
+
+Test d'édition & stockage local/online des données
+ENTREES: USER, Strings/Checkboxes/.png

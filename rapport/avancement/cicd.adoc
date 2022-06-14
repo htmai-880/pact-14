@@ -1,0 +1,89 @@
+=== Module tests et intégration
+
+==== Serveur
+
+Affin de déployer le serveur et d'exposer les APIs, il a fallu mettre en place un serveur.
+Cependant de nombreux services devaient tourner sur ce serveur.
+Pour déployer ces services de la manière la plus fluide possible, un reverse proxy a été mis en place.
+Nous avons donc un serveur Nginx qui écoute toutes les requettes et les redirige suivant certaines règles.
+
+Grace a l'image docker qui applique envsubt sur chaque fichier de template, la configuration nginx a été paramétrisée.
+Voici la configuration utilisée :
+
+.nginx.conf.template
+----
+server {
+  listen 80;
+  server_name ${SERVER_NAME};
+
+  location /api/ai/ {
+    proxy_pass http://${AI_HOST}/;
+  }
+
+  location /api/backend/ {
+    proxy_pass http://${BACKEND_HOST}/;
+  }
+
+  location / {
+    proxy_pass http://${WEB_HOST}/;
+  }
+}
+----
+
+Pour tirer partit de la puissance de gitlab CI (cf. partie suivante) il faut pouvoir controller chaque service et le paramétrer "as code".
+Pour se faire, la virtualisation et plus spécifiquement docker est d'une grande utilité.
+Chaque application est isolée dans une VM minimale et configuré via son Dockerfile et ses variables d'environment.
+Enfin un docker compose fait le lien entre toutes les apps et ajoute un volume persistant pour la base de donnée.
+Voici la configuration (simplifiée) de docker-compose.
+
+.docker-compose.yml
+----
+services:
+  ...
+
+  ngnix: # Add reverse proxy
+    build: nginx
+    ports:
+      - "80:80"
+
+  neo4j: # Add DB
+    image: neo4j:4.2.1
+    expose:
+      - "7474"
+    ports:
+      - "7687:7687"
+    volumes:
+      - type: volume
+        source: database
+        target: /data/
+----
+
+==== Déploiement
+
+Pour simplifier le déploiement, tout a été automatisé.
+Une pipeline assez simple a été mise en place pour automatiser les tests.
+S'ils n'échouent pas, un bouton apparait sur l'interface de gitlab permettant la mise à jour du serveur.
+Un bot se connecte alors, synchronise les programmes et relance le serveur.
+Voici le code exécuté par le runner gitlab :
+
+.gitlab-ci.yml
+----
+server-deploy:
+  image:
+    name: quentinn42/docker-compose
+    entrypoint: [ "/bin/sh", "-c" ]
+
+  before_script:
+    - cd server
+    - docker-compose down
+    - docker images
+    - docker ps
+
+  script:
+    - docker-compose up -d --build
+----
+
+==== Ajouts
+
+En plus de ce déploiement automatisé, chaque application est synchronisée via https://sentry.io[sentry].
+Ainsi chaque erreur est affichée directement dans le menu de gitlab, on peut donc ouvrir une issue pour résoudre le bug.

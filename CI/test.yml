@@ -1,0 +1,53 @@
+.docker-compose-test:
+  stage: test
+
+  tags:
+    - docker
+    - test
+
+  image:
+    name: quentinn42/docker-compose
+    entrypoint: ["/bin/sh", "-c"]
+
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
+  before_script:
+    - cd "$TEST_PATH"
+
+  script:
+    - docker-compose up --build --abort-on-container-exit --exit-code-from=test
+
+  after_script:
+    - apk add jq
+    - mv $(docker volume inspect "$OUTPUT_VOLUME" | jq ".[0].Mountpoint" -r)/report.xml $CI_PROJECT_DIR
+
+
+.coverage-test:
+  stage: test
+
+  image: python:3.9
+
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      cobertura: coverage.xml
+
+  coverage: '/TOTAL.*\s+(\d+%)$/'
+
+  before_script:
+    - pip install -r "$TEST_PATH/requirements.txt"
+    - pip install pytest pytest-cov
+
+  script:
+    - pytest --cov="$TEST_PATH/app/" "$TEST_PATH/unit/" --junitxml=report.xml
+    - coverage xml
+
+
+coverage-ai:
+  extends: .coverage-test
+  variables:
+    TEST_PATH: server/ai

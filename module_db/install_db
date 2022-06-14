@@ -1,0 +1,19 @@
+
+docker-compose :
+add :
+```
+entrypoint: ["/usr/bin/yes"]
+```
+
+docker ps
+	-> neo4j
+
+docker exec -it --user root ??? bash
+###
+
+docker exec -it --user root server_neo4j_1 bash
+
+
+wget http://transfer.sh/GTWCo/pac-tlocal-neo4j-2021-04-07T130024.dump
+mkdir /var/lib/neo4j/data/transactions
+neo4j-admin load --database=neo4j --force --from=./pac-tlocal-neo4j-2021-04-07T130024.dump

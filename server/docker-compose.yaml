@@ -1,0 +1,74 @@
+version: "3.9"
+services:
+
+  # Building services
+  ai:
+    build: ai
+    environment:
+      CI_ENVIRONMENT_NAME:
+      SENTRY_DSN:
+      DB_URL: bolt://neo4j:7687
+      DB_USER:
+      DB_PASS:
+    expose:
+      - "80"
+  backend:
+    build: backend
+    environment:
+      CI_ENVIRONMENT_NAME:
+      SENTRY_DSN:
+      SECRET_KEY:
+      S2R_DATABASE_USERNAME: $DB_USER
+      S2R_DATABASE_PASSWORD: $DB_PASS
+      S2R_DATABASE_URL: bolt://neo4j:7687
+    expose:
+      - "80"
+  web:
+    build: web
+    environment:
+      BACKEND_API_URL: http://${HOSTNAME}/api/backend
+      AI_API_URL: http://${HOSTNAME}/api/ai
+      PORT: 80
+    expose:
+      - "8080"
+  admin:
+    build: admin
+    environment:
+      DB_URL: bolt://neo4j:7687
+      DB_USER:
+      DB_PASS:
+
+  # Add reverse proxy
+  ngnix:
+    build: nginx
+
+    ports:
+      - "80:80"
+
+    environment:
+      AI_HOST: ai
+      RECIPE_HOST: recipe
+      BACKEND_HOST: backend
+      WEB_HOST: web
+      SERVER_NAME: ${HOSTNAME}
+
+  neo4j:
+    image: neo4j:4.2.1
+    expose:
+      - "7474"
+    ports:
+      - "7687:7687"
+
+    environment:
+#      NEO4JLABS_PLUGINS: '["apoc"]'
+      NEO4J_AUTH: ${DB_USER}/${DB_PASS}
+
+    volumes:
+      - type: volume
+        source: database
+        target: /data/
+        volume:
+          nocopy: true
+
+volumes:
+  database:

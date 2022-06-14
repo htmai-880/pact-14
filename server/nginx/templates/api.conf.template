@@ -1,0 +1,16 @@
+server {
+  listen 80;
+  server_name ${SERVER_NAME};
+
+  location /api/ai/ {
+    proxy_pass http://${AI_HOST}/;
+  }
+
+  location /api/backend/ {
+    proxy_pass http://${BACKEND_HOST}/;
+  }
+
+  location / {
+    proxy_pass http://${WEB_HOST}/;
+  }
+}

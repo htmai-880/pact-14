@@ -1,0 +1,12 @@
+
+.Tester si l’application demande de s’identifier à chaque fois ( pour une première connexion sur un appareil ou sur un appareil sur lequel on s’est déjà connecté avant mais pour lequel l’utilisateur s’est déconnecté avant de fermer l’appli  )
+. Vérifier que l’app ne demande pas à chaque fois de taper ses identifiants si on ne s’est pas déconnecté 
+.Vérifier que l’application prévient lors de la création du compte en cas de nom d’identifiant déjà existant 
+.Tester si l’application reconnaît les comptes déjà inscrits et n’affichent pas à chaque fois “ créer un compte”
+.Tester si l’application permet de 'réinitialiser le mot de passe ‘ en cas d’oubli de mot de passe 
+.Tester si l’application enregistre et mémorise le stock une fois reconnecté
+.Tester si l’application mémorise les recettes favoris 
+.Vérifier si l’application permet d’afficher le stock d’aliments  classés en catégorie ( fruits , légumes..etc)
+.Tester si l’application affiche l’historique des recettes déjà vues
+.Vérifier l’affichage des rubriques , images  ( pas de décalage .. etc )
+.Verifier que pour les recettes/liste d'ingredients longues , on a un affichage optimisé du layout 

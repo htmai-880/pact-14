@@ -1,0 +1,119 @@
+=== Planning temporel PACT
+
+
+==== Tâches / PAN1 09/11/20
+
+===== Générales
+
+* rapport:
+
+[cols=",^,^,,",options="header",]
+|====
+|Tâche |Qui |Quand |Fait |Remarques
+|Proposition de sujet |Alix |Septembre|X |
+|Rédaction de l'idée du sujet en anglais |Nicolas |Octobre |X |
+|Scénario |Lucien et Tan |12 Octobre |X |
+|Architecture (schéma et documentation) |Quentin et Nicolas |Octobre |X |En collaboration avec tout le groupe
+|Découpage en modules |Lucien , Alix, Tan , Dounia  |07 Octobre |X|
+|Storyboard |Alix |07 Octobre |X |
+|Proposition |Tan |3 Novembre| X| Possibilité d'ajout d'images
+|Etat de l'art |Nicolas |3 Novembre| |
+|Rédaction du rapport |Groupe 1.4 |3 Novembre| |En cours
+
+|====
+
+* présentation 15mn
+
+[cols=",^,^,,",options="header",]
+|====
+|Tâche |Qui |Quand |Fait |Remarques
+|Préparation du document (présentation) | Groupe 1.4| | |
+|Répartition de la parole | Groupe 1.4| | |
+|Répétition | Groupe 1.4| | |
+|====
+
+==== Taches / PAN2 29/01/21
+
+===== Générales
+
+* rapport
+
+[cols=",^,^,,",options="header",]
+|====
+|Tâche |Qui |Quand |Fait |Remarques
+|mise à jour selon remarques du jury | | | |
+|mise à jour de l’architecture | | | |
+|interfaces | | | |
+|plan de test par module et global | | | |
+|avancement | | | |
+|====
+
+* Prendre rdv avec vos experts pour le PAN2
+
+[cols=",^,^,,",options="header",]
+|====
+|Tâche |Qui |Quand |Fait |Remarques
+|module 1 | | | |
+|====
+
+===== Modules
+
+* Android
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|Installation de l’outil Android Studio | | |
+|TP Android | | |
+|Squelette d’application | | |
+|GUI | | |
+|Plan de test | | |
+|====
+
+* Autres modules
+
+==== Tâches / PAN3 19/04/21
+
+===== Générales
+
+* Préparer un déroulé de la démo et du ``matériel'' de démo
+
+===== Modules
+
+* Android
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|authentification |7/04 |oui |
+|création de compte |7/04 |oui |
+|édition de profil |7/04 |oui |ajout photo, modification pseudo
+|recherche de recettes |10/04 |oui |retourne id des recettes résultat
+|RecyclerView recettes et ingrédients |11/04 |oui |ingrédients de test locaux
+|tests | | |test unitaires sur les requêtes http (code réponse, type objets), comptes util. tests
+|====
+
+* …
+
+==== Tâches / PAN4 31/05/21
+
+===== Générales
+
+* poster pour le stand
+* présentation 4 slides
+* rapport: avancement, rapports de test
+
+===== Modules
+
+* Android
+
+[cols=",^,^,",options="header",]
+|====
+|Tâche |Quand |Fait |Remarques
+|récupérer et afficher les données de l'utilisateur |17/05 |oui |recettes et ingrédients
+|ajout de recettes |17/05 |oui |et description
+|ajout et suppression d'ingrédients |17/05 |oui |
+|modification des données d'ingrédient |17/05 |oui |créé un nouvel item/ingrédient
+|====
+
+* …

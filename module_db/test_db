@@ -1,0 +1,8 @@
+
+docker exec -it server_ai_1 bash                                                                                                                                                                                                  ░▒▓ 137.194.152.74   34%   400 Mbps 
+
+
+cd app/ && python
+from ai.main import get_recipe; from os import environ; environ["MODEL_PATH"] = "/server/app/ai/model/"
+get_recipe([0,1])
+

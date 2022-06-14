@@ -1,0 +1,65 @@
+=== Android
+
+==== Requêtes HTTP:
+On utilise le module Retrofit qui est client http type-safe pour Android et Java.
+https://square.github.io/retrofit/
+Construction de requêtes à partir d’une instance de retrofit :
+`Retrofit retrofit = new Retrofit.Builder()`
+On indique l’adresse de l’URL de référence :
+`.baseUrl("https://jsonplaceholder.typicode.com/")`
+On ajoute un module de conversion Gson pour que toutes les requêtes soient envoyées au format Json et qu’on puisse parser correctement les requêtes envoyées par l’Api de l’IA ou de la BDD qu’on reçoit en Json également :
+`.addConverterFactory(GsonConverterFactory.create())`
+On construit alors toutes les requêtes à partir d’une interfac Java JsonApi, en suivant le schéma suivant:
+@<type de requête>(“complément de l’adresse de base, avec potentiellement des arguments de la requête passés en Query”)
+Call<<type de retour de la requête>> <nom de la requete>(@Path/@Body/@Query <arguments>);
+
+Exemples:
+
+POST request at
+http://pact15.r2.enst.fr/api/backend/login that should return LoginResponse{token=...} in case of a successful login and LoginResponse{message=...} in case of a login failure
+@POST("login")
+Call<LoginResponse> getLoginResponse(@Body LoginInfoPost loginInfoPost);
+
+GET request at
+http://pact15.r2.enst.fr/api/backend/getunitforingredient that returns a Hashmap with the unit corresponding to the ingredient passed in the request function
+@GET("getunitforingredient?ingredient={ingredientName}")
+Call<HashMap> getUnitForIngredient(@Path("ingredientName") String ingredient_name);
+
+PATCH request at http://pact15.r2.enst.fr/api/backend/useringredients?username={userName} to update supply list
+@PATCH("useringredients")
+Call<HashMap> updateUserIngredients(@Query("username") String userName,@Body List<Ingredient> ingredients);
+
+Pour tester le bon fonctionnement des requêtes avant d’avoir une Api fonctionnelle et intégrer l'appli avec les modules BDD et IA, nous avons utilisé l’Api de test JsonPlaceholderApi (Fake REST Api) : https://jsonplaceholder.typicode.com
+L’appli a ensuite été intégrée avec les modules IA et BDD.
+
+==== Explication des écrans
+
+===== Écran de login :
+Deux boutons : le bouton “valider” permet d’envoyer la requête d’authentification au serveur, et le bouton “Se connecter” permet de récupérer les données de l’utilisateur, que l’on enregistre ensuite dans des variables globales : une variable globale pour les recettes, une pour les ingrédients, une pour l’adresse mail de l’utilisateur connecté… qui permettent la mise à jour des données de l’utilisateur à chaque chargement des écrans.
+Un écran de loading permet d’attendre l’aboutissement de la requête GET qui récupère les informations de l’utilisateur connecté avant de lancer l’activité profil, où les données de l’utilisateur n’auraient alors pas encore été obtenues. C’est dû aux requêtes qui s’effectuent de façon asynchrone, et on ne peut pas les effectuer de manière synchrone sinon l’appli ne réagirait plus tant qu’une réponse n’aurait pas été obtenue.
+
+===== Édition de profil :
+Possibilité d’ajouter une photo du téléphone qui est enregistrée dans l’application.
+Possibilité de modifier son pseudonyme directement à partir de l’application.
+
+===== Écran d’accueil :
+Liste des recettes sous la forme d’un RecyclerView, et mise à jour des recettes de l’utilisateur avec la classe Adapter de Java à chaque chargement de l’écran.
+
+Pour chaque recette de la liste, on peut accéder à la liste des ingrédients nécessaires pour la recette ainsi qu’aux étapes de celle-ci, à l’aide d’un bouton.
+
+La liste d’ingrédients est également sous la forme de RecyclerView et est chargée à l’aide d’un Adapter, ce qui permet le défilement d’un nombre illimité d’ingrédients.
+
+On peut librement supprimer des ingrédients ou des recettes à partir des RecyclerView.
+
+===== Ajout recette :
+L’application possède un écran d’ajout de recette, qui permet à l’utilisateur sous Android d’ajouter une recette identifiée par un nom, des ingrédients et les étapes de cette recette.
+
+===== Modification/Ajout d’ingrédients :
+Pour chaque ingrédient, un bouton permet d’aller à l’écran de modification d’ingrédient, dans lequel l’utilisateur peut modifier les propriétés de ses ingrédients : Quantité avec l’unité, catégorie et sous-catégorie de l’ingrédient et possibilité de rentrer la date de péremption de l’ingrédient, bien que la recherche de recette ne prend pas en compte cette fonctionnalité pour l’instant.
+
+===== Recherche de recettes :
+La recherche à l’API de l’IA renvoie les id des recettes correspondant à la recherche, en fonction des caractères rentrés.
+
+==== Interface utilisateur
+
+Banques d’images utilisées pour les icônes de l’interface utilisateur. Un générateur de logos a été utilisé pour la charte graphique.

@@ -1,0 +1,224 @@
+/* Source: W3Schools */
+
+* {
+  font-family: Verdana, Avenir, Helvetica, sans-serif;
+   }
+   
+   body{
+    background-color: white; /*Background color (set to white*/
+   }
+
+   .layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+
+  .content{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+
+  p {
+    position: relative;
+
+  }
+
+  
+  footer {
+    float: right;
+    font-size: small;
+    color: dimgrey;
+  }
+  .row {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .rowblock {
+    width: 100px;
+    padding: 0px 60px;
+    float: left;
+  }
+   
+
+/* Content for login and register forms */
+
+  .container-client-space {
+    margin: 5% auto;
+    vertical-align: middle;
+    width:700px;
+    border: 3px solid;
+    border-color: #f1f1f1 ;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .container-contact {
+    margin: 1% auto;
+    vertical-align: middle;
+    width:80%;
+    border: 3px solid;
+    border-color: #f1f1f1 ;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .container-has-text-centered {
+    font-size:20px;
+    text-align: center;
+  }
+   /* Bordered form */
+   form {
+   }
+   
+   /* Full-width inputs */
+   input[type=email], input[type=password], input[type=username] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+   }
+
+   input[type=contact-message] {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+   }
+
+   input[type=comment] {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+   }
+
+   input[type=food]{
+     position: relative;
+     margin: auto auto;
+     width: 60%;
+     height: 30%;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 8px solid #ccc;
+     border-radius: 10px;
+     box-sizing: border-box;
+   }
+   
+   /* Set a style for all buttons */
+   button {
+    background-color: #ff0000; /* Red */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 8px;
+    margin: 8px 8px;
+
+   }
+
+   button.button-user {
+    width: 100%;
+    padding: 8px 8px;
+    margin: 8px 8px;
+   }
+
+   button.button-home {
+    width: 100%;
+    height:100px;
+    font-size:20px;
+   }
+   
+   /* Add a hover effect for buttons */
+   button:hover {
+    opacity: 0.8;
+   }
+   
+   /* Extra style for the cancel button (red) */
+   .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #FF0000;/*Red*/
+   }
+   
+   /* Center the avatar image inside this container */
+   .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+   }
+   
+   /* Avatar image */
+   img.avatar {
+    width: 40%;
+    border-radius: 50%;
+   }
+   
+   /* Add padding to box containers */
+   .container {
+    padding: 16px;
+    
+   }
+   
+   /* The "Forgot password" text */
+   span.psw {
+    float: right;
+    padding-top: 16px;
+   }
+   
+   /* Change styles for span and cancel button on extra small screens */
+   @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+   }
+
+   /* Close button */
+   .close {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+
+    background-color: transparent;
+
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  
+  
+
+

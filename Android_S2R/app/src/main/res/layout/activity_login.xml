@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    >
+
+    <ImageView
+        android:id="@+id/logo_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_s2r_rogne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_editor_absoluteY="75dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/logo_login"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="22dp"
+        android:textColor="@color/black"
+        android:text="Adresse mail :"
+        />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/email_text"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Enter Your Email Here" />
+
+    <TextView
+        android:id="@+id/mdp_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/email_edit_text"
+        android:textColor="@color/black"
+        android:text="Mot de passe :"
+        android:layout_marginVertical="25dp"/>
+
+    <EditText
+        android:id="@+id/mdp_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mdp_text"
+        android:layout_marginHorizontal="30dp"
+        android:inputType="textPassword"
+        android:hint="Enter Your Password Here" />
+
+    <TextView
+        android:id="@+id/warning_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/mdp_edit_text"
+        android:layout_marginBottom="10dp"
+        android:text=""
+        android:gravity="center"
+        android:textColor="@color/red"/>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:id="@+id/connection_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/text_view_result"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/warning_message">
+
+        <Button
+            android:id="@+id/validate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/warning_message"
+            android:text="VALIDER"
+            android:layout_marginHorizontal="30dp" />
+
+        <Button
+            android:id="@+id/se_connecter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/warning_message"
+            android:text="SE CONNECTER"
+            android:layout_marginHorizontal="30dp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/text_view_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/connection_buttons"
+        app:layout_constraintBottom_toTopOf="@id/add_supply_buttons"/>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:id="@+id/add_supply_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <!--<Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Profile"
+            android:textSize="30dp" />-->
+
+        <Button
+            android:id="@+id/to_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nouveau? Créez votre compte"
+            android:textSize="15dp"
+            android:layout_marginBottom="20dp"/>
+            <!--app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/login_button"/> -->
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

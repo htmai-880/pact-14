@@ -1,0 +1,26 @@
+
+//PROPOSITION
+* [[Statista]]Statista : Chiffres clés du gaspillate alimentaire, https://fr.statista.com/infographie/4918/chiffre-cles-gaspillage-alimentaire/
+* [[RefrigerateurConnecteBoulanger]]Boulanger: Réfrigérateur connecté, https://www.boulanger.com/info/animation/bcbu/gros-menager/refrigerateur/refrigerateur-connecte.html
+* [[SamsungFamilyHub]]Samsung: Family Hub https://www.samsung.com/fr/familyhub/
+* [[QueCuisiner.fr]]QueCuisiner.fr: http://quecuisiner.fr/
+* [[FrigoMagic]]Frigo Magic: https://www.frigomagic.com/fr/
+
+// PARTIE IA
+* [[Veganaizer]]Veganaizer : *Dennis Lawo*, _Veganaizer: AI-assisted Ingredient Substitution_, Sept 2020, DOI: 10.13140/RG.2.2.18736.17922, https://www.researchgate.net/publication/344376995
+* [[HealthAware]]HealthAware : *Aljbawi, Bushra*, _"Health-aware Food Planner: A Personalized Recipe Generation Approach Based on
+GPT-2"_, Theses and Dissertations (Comprehensive), 2020,
+https://scholars.wlu.ca/etd/2311
+* [[DeClercq]]DeClercq : *Marlies De Clercq*, _Data-driven recipe completion using machine learning methods_, Trends in Food Science & Technology, 2015, http://dx.doi.org/10.1016/j.tifs.2015.11.010.
+// (anecdotiques)
+* [[Zhenfeng]]Zhenfeng Lei, Composing recipes based on nutrients in food in a machine learning context, Sept 2020, https://doi.org/10.1016/j.neucom.2020.08.071
+* [[DeClercq16]]De Clercq, Replacing a food allergen in a recipe using data-driven methods, 2016.
+* [[Cueto]]Cueto, Completing partial recipes using item-based collaborative filtering to recommend ingredients, Feb 2020.
+
+// TESTS
+* [[SeleniumWebDriver]]Selenium WebDriver : Selenium official website, https://www.selenium.dev/[www.selenium.dev]
+* [[Selendroid]]Selendroid : Selendroid official website, http://selendroid.io/[selendroid.io]
+* [[GitlabCICD]]Gitlab CI/CD : GitLab documentation website, https://docs.gitlab.com/ee/ci/[docs.gitlab.com]
+* [[Pytest]]Pytest : Pytest documentation, https://docs.pytest.org/en/latest/[docs.pytest.org]
+* [[SonarQube]]SonarQube : SonarQube official website, https://www.sonarqube.org/[sonarqube.org]
+* [[SonarCloud]]SonarCloud : SonarCloud official website, https://sonarcloud.io/[sonarcloud.io]

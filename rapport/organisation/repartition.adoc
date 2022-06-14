@@ -1,0 +1,17 @@
+=== Répartition des élèves par module
+
+
+[cols=",^,^,^,^,^,^",options="header",]
+|====
+| Module   | Classification automatique | Intégration et tests | Base de données avec (Communication client serveur  )   | Android (avec Interface utilisateur graphique) | Mise en oeuvre d’une interface web     | SES : Ergonomie
+| Expert   | (Michel Roux  )            | (Jean-Claude Dufourd ) | Mauro Sozio     | Jean-Claude Dufourd             | Jean-Claude Moissinac               | Stephane Safin
+| Grégoire |                            | X                    |                 |                                X             |                                 |                                                                       
+| Alix     |                            |                      |                 |                                X             |                                 | X                                                                         
+| Quentin  | X                          | X                    |                 |                                              |                                 |                                                                          
+| Nicolas  | X                          |                      | X               |                                              |                                 |                                                                         
+| Tan      |                            |                      | X               |                                              |  X                              |                                                                        
+| Dounia   |                            |                      |                | X                                             |  X                              |
+| Lucien   |                            |                      |                 |                                              |  X                              | X                                                                       
+| Hugo     |                            |                      |  X              | X                                            |                                 |                                                                        
+|====
+

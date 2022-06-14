@@ -1,0 +1,43 @@
+
+//   Mettre ici le scénario d’usage que vous avez construit lors des séances
+//   encadrées par les experts SES.
+//   Vous pouvez mettre un scénario amélioré (et non celui noté) si vous jugez
+//   votre scénario insuffisant pour faire comprendre au jury PACT les différentes
+//   étapes d’utilisation de votre produit/service ou si vous avez changé d’idées entre temps.
+
+*Rédaction du scénario*
+
+
+==== Contextualisation
+
+Arthur est étudiant en 2ème année de licence en informatique et vit en résidence étudiante.
+En plus d’avoir un budget limité, il est régulièrement amené à jeter des produits périmés et non consommés car il est trop occupé pour gérer efficacement ses réserves alimentaires.
+En outre, il ne supporte plus de manger des pâtes à outrance et il souhaite diversifier son alimentation. 
+Membre de cette génération alertée sur les enjeux de développement durable, il souhaite d’autant plus œuvrer contre le gaspillage alimentaire en apprenant à faire meilleur usage de ses ressources.
+
+
+==== Solutions existantes
+	
+Le réfrigérateur interactif a déjà été pensé et imaginé par des entreprises comme Haier en 2012 et Samsung en 2016.
+Ils présentent cependant des défauts sur lesquels il est difficile d’agir : prix exorbitant pour le consommateur, bilan carbone de fabrication élevé, problèmes de reconnaissance 
+des ingrédients dans le réfrigérateur etc.
+
+
+==== Cadre d'utilisation de l'application
+
+Plutôt que se munir d’un réfrigérateur connecté onéreux et ayant des fonctionnalités limitées, il décide d’utiliser une solution plus proche de l’utilisateur et gratuite :
+l’application SuppliestoRecipe (S2R) qui lui a été conseillée par un ami.
+
+En moins d’une minute après l’installation, il a déjà fini de créer son compte sur lequel il pourra saisir et garder en mémoire ses réserves alimentaires, ainsi que leurs dates de 
+péremption respectives. S2R propose des recettes à partir de ce qu’il a en réserve et s’enrichit des suggestions des utilisateurs. Tout ce qu’Arthur a besoin de faire, c’est télécharger l’application Android ! Il a également la possibilité d’utiliser le site Web qui propose les mêmes fonctionnalités. 
+
+Il est mardi soir. Arthur rentre de sa journée de cours et ne sait pas quoi cuisiner. Il fait appel à l’application S2R, qui lui propose de cuisiner une pizza Regina un peu originale,
+puisqu’il avait enregistré préalablement qu’il possédait une pâte à pizza dans l’application. En effet, S2R connaît les réserves alimentaires d’Arthur et sait qu’il n’a pas de jambon 
+dans son réfrigérateur, mais a analysé qu’il avait des lardons qui vont bientôt périmer. C’est pourquoi elle lui propose alors d’essayer une nouvelle pizza en remplaçant le jambon par 
+les lardons car d’une part la pizza est le plat le plus faisable avec les ingrédients qu’il possède, et d’autre part car le jambon et le lardon font partie d’une même classe 
+d’ingrédients pour l’application. Arthur fait confiance à S2R et accepte de réaliser la recette. Agréablement surpris par celle-ci, il lui attribue la note de 4/5, ce qui la fait remonter dans les préférences du moment des utilisateurs de S2R. En effet, cette dernière référence les recettes favorites des utilisateurs et les met à jour régulièrement. 
+
+La semaine suivante, Arthur voit un ami asiatique qui lui apprend à faire un plat local. Après une recherche dans l’application, il constate qu’elle n’est pas proposée par celle-ci.
+Ayant beaucoup apprécié ce plat, Arthur souhaite l’ajouter à la liste des recettes existantes pour qu’elle puisse être proposée aux autres utilisateurs. Rien de plus facile : une liste 
+d’ingrédients, des instructions de préparation et le tour est joué !
+

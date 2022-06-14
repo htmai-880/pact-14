@@ -1,0 +1,54 @@
+=== Documentation du module Interface Web
+
+==== Méthodologie :
+ 
+Afin de pouvoir permettre à l’utilisateur de bénéficier des services de S2R, nous avons choisi de monter deux applications analogues : une application Android et une application Web. Plusieurs versions de l’application web ont été testées. Une première tentative a été de la réaliser en HTML simple et javascript, ce qui n’était pas très pratique. La deuxième a été de la réaliser avec le framework Flask, qui fournissait de meilleures solutions en termes de pratique mais restait assez piètre en termes de performance et de fluidité. La dernière tentative et l’option pour laquelle nous avons opté dans le module est le framework proposé par l’expert PACT : Vue.js. C’est un outil puissant qui est commode en termes de programmation et propose des solutions dynamiques car elle ne fait que mettre à jour le contenu d’une seule page. En accordance avec les nécessités, de différentes fonctionnalités ont été implémentées. Notamment, l’authentification en tant qu’utilisateur et la recherche d’ingrédients/de recettes ont été particulièrement longs.
+
+==== Backend :
+
+Pour pouvoir communiquer avec la base de données, il a fallu interfacer le module Web avec le module BDD. Pour cela, le membre commun au module Web et BDD a réalisé une API qui permettait de communiquer les informations entre la base de données et les applications (car cette interface est également partagée avec le module Android). L’interface a été réalisée à l’aide de Python, en particulier du package Flask RESTful, sur une base de requêtes HTTP. Elle est mise en place du côté du serveur
+
+==== Frontend :
+    
+Vue fonctionne à base d’un contenu html qui se met à jour dynamiquement pour faire une application web monopage. Celle-ci marche à base de composants, chacun ayant une apparence et une forme qui lui est propre car ils possèdent leur propre code (et sont donc réutilisables indépendamment). La méthode générale pour travailler avec le framework est donc de définir les composants complexes nécessaires pour utiliser les fonctionnalités prévues pour l’application web, puis de lui permettre d’accéder au contenu de la base de données par le biais de l’API (backend). Cette méthode permet d’une part d’encapsuler les données, et d’autre part d’améliorer la lisibilité du code.
+Dans chaque composant (ou vue), on distingue ainsi 3 blocs facilement reconnaissables dans nos pages .vue : le bloc <template> pour le code HTML5, le bloc <style> pour le CSS3 et le bloc <script> pour la partie JavaScript.
+               
+En ce qui concerne la forme, nous avons nommé un fichier « styles.css » qui sert de feuille de style CSS externe de base : on y définit les propriétés ensuite utilisées dans les monopages .vue. Dans chaque monopage .vue, on utilise ensuite le langage CSS pour appliquer ensuite des styles particuliers à des blocs de texte et spécifier la structure de la page affichée: soit en important un fichier .css externe (cette méthode est préférée), soit en y écrivant directement dans le bloc <style/> le contenu .css à appliquer au composant spécifiquement.
+L’application web contient plusieurs “vues” (c’est l’équivalent de différentes pages), chacune accessible par le biais d’un routeur qui redirige l’utilisateur vers la vue souhaitée. Elle contient également un registre local (store) qui lui permet de garder en mémoire des données, par exemple ici les informations sur l’utilisateur et son token obtenu après authentification. Le store est codé en JavaScript, et contient également plusieurs fonctions pouvant être dispatchées par les composants (notamment pour faire des requêtes à l’API afin d’interagir avec la base de données).
+
+Les fichiers JavaScript sont sollicités de la façon suivante:
+•	router: le routeur qui permet à l’utilisateur de naviguer de vue en vue
+•	store: le registre local
+•	api: fonctions de requêtes à l’API importées dans le store
+•	utils: des fonctions auxiliaires codées à part entière puis importées pour améliorer la lisibilité
+
+Notre site Web est composé d’un menu déroulant (Header) qui permet d’accéder aux différentes fonctionnalités du site : une page d’accueil avec un écran de connexion, les ressources de l’utilisateur incluant l’ajout et la suppression d’ingrédients, la recherche de recettes et d’ingrédients et enfin une page de mise en forme pour nous contacter et en savoir plus sur le projet. Le style graphique du texte est pensé pour être proche de celui de l’application Android et respecter la charte graphique pensée par le module SES en début d’année, avec la réalisation du storyboard. 
+
+On détaille ici les actions possibles pour l’utilisateur :
+•	Se créer un compte et s’enregistrer dans notre base d’utilisateurs
+•	S’identifier et se connecter
+•	Accéder à un tableau où figure ses ressources actuelles
+•	Ajouter un ingrédient en entrant : son nom, sa quantité, l’unité de mesure correspondante
+•	Supprimer un ingrédient consommé ou jeté car périmé depuis trop longtemps
+•	Rechercher un ingrédient parmi une liste d’ingrédients issus de la base de données utilisée par le module IA.
+•	Rechercher une recette et la consulter : liste des tâches à réaliser pour la recette, ingrédients nécessaires, note moyenne attribuée par les utilisateurs
+•	Noter une recette existante
+•	Suggérer une recette en entrant des instructions, un nom et les ingrédients à utiliser.
+•	Rechercher une recette par ingrédient 
+
+
+Le plus difficile dans le module web a été la documentation par rapport à l’utilisation du framework Vue.js. La compréhension de l’outil et la documentation sur des propositions d’architecture (ou exemples d’utilisation) a pris beaucoup de temps au sein du module, en particulier pour le membre en commun avec le module BDD qui s’est également chargé du backend.
+Au niveau de l’implémentation de composants et de fonctions API, beaucoup de débuggage a dû être fait pour identifier les données échangées et pour avoir une application web fonctionnelle.
+
+==== Ressources utilisées :
+
+a) Cours d’Openclassrooms sur les langages Web de base : HTML5, CSS3, Java Script
+
+b) Utilisation d’une ressource communiquée par notre expert : https://v3.vuejs.org/guide/introduction.html#what-is-vue-js
+
+c) Utilisation de ressources en ligne pour nous aider à monter une API: https://flask-restful.readthedocs.io/en/latest/, https://stackabuse.com/single-page-apps-with-vue-js-and-flask-jwt-authentication/
+
+==== Outils utilisés:
+
+•	API: Flask RESTful (Python), Flask CORS
+•	Application web: Vue.js, BootstrapVue

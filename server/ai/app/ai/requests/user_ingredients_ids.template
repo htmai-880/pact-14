@@ -1,0 +1,2 @@
+MATCH (u:User {email:"${user_email}"})-[:OWNS_INGREDIENT]->(i:Ingredient)
+RETURN collect(i) as ings_ids

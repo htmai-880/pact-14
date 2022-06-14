@@ -1,0 +1,20 @@
+=== Description de l’état de l’art
+ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
+
+Produits/services existants :
+Notre application exploite le même concept que des applications très populaires (Marmiton, Tasty, Yummly, AllRecipes, ...) : proposer des recettes dans une application.
+
+Plusieurs sites et applications proposent déjà la recherche de recettes basée sur les ingrédients de l'utilisateur : quecuisiner.fr, SuperCook, FrigoMagic, etc.
+Mais toutes souffrent d'une ergonomie de saisie des ingrédients médiocre.
+
+Notons ici que la promesse que nous faisons ici est la même que celle des frigos connectés il y a quelques années, qui ont été un échec commercial en raison de leur coût élevé.
+
+Quelques applications proposent la substitution d'un ingrédient par un autre (Frigo Magic notamment) mais la fonctionnalité n'est pas très performante.
+
+Solutions techniques existantes pour notre projet :
+- Pour la saisie des stocks : OCR des tickets de caisse similaire à celui proposé par "taggun.io" ou un scan de code-barre avec open-food-facts ;
+- Pour adapter des recettes existantes quand aucune n'existe n'utilisant que les ingrédients du frigo : méthode similaire à researchgate.net/publication/344376995_Veganaizer_AI-assisted_Ingredient_Substitution.
+
+Littérature lue sur le sujet :
+La substitution d'ingrédient dans les recettes est étudiée depuis plusieurs années [[DeClercq16]][[DeClercq]][[Veganaizer]][[Cueto]], comme une sous-tâche de la génération informatique de recette [[Zhenfeng]].
+Une substitution d'ingrédient performante peut être obtenue grâce à la méthode de [[Veganaizer]] utilisant un embedding des ingrédients des recettes. De plus, il est possible de modifier les instructions de la recette pour les adapter à la substitution d'ingrédients [[HealthAware]].

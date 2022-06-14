@@ -1,0 +1,4 @@
+=== Diagramme de séquence
+
+image::../images/sequence.jpg[Sequence]
+

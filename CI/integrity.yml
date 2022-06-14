@@ -1,0 +1,18 @@
+.docker-compose-integrity:
+  stage: integrity
+
+  image:
+    name: quentinn42/docker-compose
+    entrypoint: ["/bin/sh", "-c"]
+
+  before_script:
+    - cd "$TEST_PATH"
+
+  script:
+    - docker-compose config
+
+
+test-server:
+  extends: .docker-compose-integrity
+  variables:
+    TEST_PATH: server

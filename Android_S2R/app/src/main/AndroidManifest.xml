@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.pact14.s2r">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:icon="@mipmap/logo_s2r_without_slogan"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_s2r_without_slogan"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.S2R"
+        android:requestLegacyExternalStorage="true">
+        <activity android:name=".AddRecipeActivity"></activity>
+        <activity android:name=".RecipeDescriptionActivity" />
+        <activity android:name=".SearchRecipeActivity" />
+        <activity android:name=".SupplyDataActivity" />
+        <activity android:name=".ScanAddActivity" />
+        <activity android:name=".QuickAddActivity" />
+        <activity android:name=".AddSupplyActivity" />
+        <activity android:name=".SupplyListActivity" />
+        <activity android:name=".ProfileEditorActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".LoadingScreenBis" />
+        <activity android:name=".SignInActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoadingScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+    </application>
+
+</manifest>

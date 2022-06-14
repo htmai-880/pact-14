@@ -1,0 +1,47 @@
+=== Tableau détaillé des tâches
+
+**Note : 2 pages max - les fiches modules seront placées en annexe,
+elles doivent être rédigées avec l’expert.**
+
+//   Tableau des tâches (pas en priorité)
+//   Les différents aspects du projet sont découpés en modules
+//   Un module est typiquement constitué de plusieurs tâches
+//   Chaque tâche est décomposée en sous-taches
+//   Chaque tâche est décrite précisément
+//   Chaque tâche est affectée a un binôme
+//
+//   Dans le Tableau 1, complétez la colonne « Intégrée au PAN3 »
+
+* Intégrée au PAN3 : la sous-tâche est soit finie soit en cours et
+intégrée dans le prototype allégé.
+* Non-intégrée au PAN3 : la sous-tâche est en cours, mais non intégrée
+dans le prototype allégé, l’intégration se fera pour PAN4. L’avancement
+de la sous-tâche sera donc démontré au PAN3 indépendamment du prototype
+allégé (code MatLab ou autre)
+
+Certaines sous-tâches peuvent ne pas être démontrables dans le prototype
+allégé. Mettez-vous d’accord avec vos experts techniques pour savoir ce
+qu’il est réaliste de démontrer au PAN3. N’hésitez pas à redécouper en 2
+sous-taches, l’une démontrable au PAN3 et l’autre uniquement au PAN4.
+
+[cols=",,^",options="header",]
+|====
+| Tâche | Description                                           | Intégré au PAN3
+| T1    | Etablir une base de données.                              | X
+| T1.1  | Conception de la BDD | X
+| T1.2  | Créer la BDD| X
+| T1.3  | Classification: identifier les classes d'ingrédients interchangeables  | X
+| T1.4  | Web Scraping                   |
+| T2    |Etablir l'Interface         |X
+| T2.1  |Savoir développer l'application Android         | X
+| T2.2  |Bien définir la disposition des objets graphiques de l'application        |X
+| T3    |Communication Client Serveur | X
+| T3.1  |Assurer l'échange avec le serveur | X
+| T3.2  |Gérer les données reçues (date de péremption ,quantité d'aliments restante )         | X
+| T3.3  |Gérer les comptes utilisateurs | X
+| T4    |Intégration et Tests | 
+| T4.1  |Verifier que chaque module a été testé |
+| T4.2  |Tester la fonctionnalité et la performance | 
+| T4.3  |Etablir d'éventuelles solutions aux problèmes non spécifiques | 
+|====
+

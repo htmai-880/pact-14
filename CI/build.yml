@@ -1,0 +1,22 @@
+build-report:
+  stage: build
+
+  image: asciidoctor/docker-asciidoctor
+
+  artifacts:
+    expire_in: 7 days
+    name: "Rapport-$CI_PROJECT_NAME-$(date -u +%d-%m-%Y@%Hh%MUTC)"
+    paths:
+      - rapport/Rapport-$CI_PROJECT_NAME.html
+      - rapport/Rapport-$CI_PROJECT_NAME.pdf
+      - rapport/images
+
+  before_script:
+    - cd rapport
+
+  script:
+    - asciidoctor -d book -b html5 README.adoc -o Rapport-$CI_PROJECT_NAME.html
+    - asciidoctor-pdf -r asciidoctor-mathematical -a mathematical-format=svg -d book -b pdf README.adoc -o Rapport-$CI_PROJECT_NAME.pdf
+
+  only:
+    - master

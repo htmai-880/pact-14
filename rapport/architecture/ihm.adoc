@@ -1,0 +1,29 @@
+=== Interface utilisateur graphique
+
+//   Insérer le storyboard.
+//   Une description textuelle.
+//   Faire le lien avec les blocks et les interfaces.
+
+Dans cette partie, nous allons présenter les différents écrans et la manière dont on peut passer de l'un à l'autre.
+
+Premièrement, voici une vue d'ensemble de tous les écrans dont disposera l'application. Bien sûr, ceci est dans un cas idéal et ils ne feront peut-être pas tous partie de la version finale du projet.
+
+image::../images/1.jpg[Storyboard 1]
+
+Ci-dessous, chaque écran est présenté plus précisément avec le détail des actions possibles à partir de celui-ci.
+
+image::../images/2.jpg[Storyboard 2]
+image::../images/3.jpg[Storyboard 3]
+image::../images/4.jpg[Storyboard 4]
+image::../images/5.jpg[Storyboard 5]
+image::../images/6.jpg[Storyboard 6]
+image::../images/7.jpg[Storyboard 7]
+image::../images/8.jpg[Storyboard 8]
+image::../images/9.jpg[Storyboard 9]
+image::../images/10.jpg[Storyboard 10]
+image::../images/11.jpg[Storyboard 11]
+image::../images/12.jpg[Storyboard 12]
+image::../images/13.jpg[Storyboard 13]
+image::../images/14.jpg[Storyboard 14]
+image::../images/15.jpg[Storyboard 15]
+

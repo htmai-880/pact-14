@@ -1,0 +1,111 @@
+=== Exemples d'utilisation d'AsciiDoc
+
+_Ici quelques exemples de syntaxe AsciiDoc pour ajouter des équations, des images, des listes..._
+
+_Ces exemples *ne doivent pas* être conservé dans la version finale du rapport._
+
+==== Exemples d'équations
+
+* Inline math: latexmath:[\int_{-\infty}^\infty g(x) dx]
+Pour ajouter une équation ou un symbole mathématique dans le corps du texte.
+
+* Block math pour avoir une équation centrée au milieu de la page:
+
+[latexmath]
+++++
+\int_{-\infty}^\infty g(x) dx
+++++
+
+
+
+==== Exemples d'images
+
+* Ceci est un exemple d'image:
+
+image::../images/logo_PACT.png[logo pact]
+
+* L'image peut être redimensionnée et avoir un titre:
+
+.Le logo du projet
+image::../images/logo_PACT.png[logo pact, 400, 400]
+
+* Pour le rapport, les images peuvent être aux formats jpeg, png ou même *svg*:
+
+image::../images/pact.svg[un autre logo pact,300,300]
+
+* Les images peuvent aussi être mises dans le corps du texte par exemple image:../images/logo_PACT.png[logo pact, 50,50].
+
+==== Exemples de code
+
+On peut ajouter des blocs de code formatés en précisant le langage utilisé:
+
+[source,python]
+----
+def func(k):
+   x = 3 + k
+   return x
+
+for i in range(10):
+   print(f"---> {func(i)}")
+----
+
+
+[source,java]
+----
+class foo {
+   Integer i;
+   String s;
+}
+----
+
+
+==== Exemples de listes
+
+* AAAA
+** aaaaa
+*** axaxax
+** bbbbb
+** ccccc
+* BBBB
+* CCCC
+
+'''''
+
+.  AAAA
+..  aaaa
+..  bbbb
+.  BBBB
+.  CCCC
+
+'''''
+
+.Liste des tâches à faire:
+*  [ ] Pas encore fait
+** [ ] étape X
+** [x] étape Y (a démarré en avance)
+** [ ] étape Z
+*  [x] Complètement finit
+** [x] étape Q
+** [x] étape R
+** [x] étape `finale` E=mc^2^
+
+'''''
+
+.Liste descriptive:
+
+Étape 1::: Faire A, B, C…
+Étape 2::: Faire X, Y, Z…
+Étape 3::: Faire W, et c'est fini…
+
+
+==== Exemples de citations
+
+Les références bibliographiques sont regroupées dans le fichier `References.adoc`
+à la racine du répertoire `rapport`.
+On peut y faire référence dans toutes les sous parties du document.
+
+On peut citer comme exemple l'article de Claude E. Shannon sur la
+théorie de la communication <<RefShannon>>
+ou, bien évidement, la vitrine des projets PACT <<VitrinePACT>>.
+
+Voir <<TOTO,la référence>> très intéressante elle aussi.

@@ -1,0 +1,3 @@
+MATCH (r)-[h:HAS_INGREDIENT]->(i:Ingredient), (rr:Recipe:CreatedByAI)
+WHERE i.name <> "${ing_to_replace}" AND id(r) = ${recipe_id} AND id(rr) = ${clone_id}
+CREATE (rr)-[:HAS_INGREDIENT {option:h.option, preparation:h.preparation, quantity_denominator:h.quantity_denominator, quantity_numerator:h.quantity_numerator, unit:h.unit}]->(i)

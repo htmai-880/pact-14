@@ -1,0 +1,10 @@
+=== Description des interfaces
+
+Pour simplifier les tests et augmenter la fiabilité, il a été décidé d'utiliser
+la conteneurisation afin de bien isoler chaque block du projet.
+
+Chaque interface entre programmes se fera donc via API échangeant des JSONs via
+protocole https.
+
+Suivant les exigences des différents blocks du projet, le contenus de ces JSONs
+pourra évoluer pour augmenter la versatilité de l'application.

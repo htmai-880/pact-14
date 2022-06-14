@@ -1,0 +1,57 @@
+=== Module IA
+Pour satisfaire notre proposition de valeur, c'est-à-dire "proposer une application de recommandation de recette n'utilisant QUE les ingrédients du frigo de l'utilisateur", nous devions soit posséder beaucoup BEAUCOUP de recettes, soit être capable de générer beaucoup de nouvelles recettes avec les ingrédients de l'utilisateur. Nous avons choisi la deuxième option, d'où ce module "Intelligence Artificielle".
+
+Pour générer ces recettes, nous remplaçons les ingrédients que l'utilisateur n'a pas par d'autres similaires qu'il possède. +
+Nous utilisons une méthode assez originale de substitution basée sur une analogie entre langage et cuisine : les recettes sont assimilées à des phrases, dont les ingrédients sont les mots. Cela permet d’utiliser le cadre fructueux du traitement automatique du langage (NLP) en Machine Learning.
+
+==== Explication du modèle ML utilisé
+Le but de ce modèle est d’apprendre quels ingrédients sont substituables pour quels autres, sans connaissances préalables en cuisine. +
+La tâche est similaire à celle de l’apprentissage du sens des mots à partir du contexte, utilisée en Traitement du Langage Naturel (NLP) : Word2Vec. +
+Word2Vec utilise l’hypothèse que "deux mots utilisés dans le même contexte ont un sens proche" pour générer un vecteur (liste de nombres) associé à chaque mot.
+
+C’est une technique éprouvée, capable de capturer sans aide humaine la similitude sémantique, grammaticale, les relations entre les mots etc. +
+Par exemple, en additionnant/soustrayant les vecteurs :
+	"Roi – Homme + Femme" donne "Reine"
+Reflet de l’intuition humaine "Reine est à Roi ce que Femme est à Homme".
+
+Nous utilisons ici un corpus d’instructions tirées de recettes de cuisine pour générer une telle représentation : c’est le modèle Ingredient2Vec décrit dans https://www.researchgate.net/publication/344376995_Veganaizer_AI-assisted_Ingredient_Substitution. Ce modèle permet de trouver une liste de substituts plausibles.
+
+**Qu’en est-il des performances ?** +
+L’implémentation donnée dans l'article "Veganaizer" donne en première recommandation un substitut correct 73 % du temps, et dans ces 5 premières recommandations 97 % du temps.
+
+Les premiers tests sont assez concluants, voici par exemple quelques ingrédients substituables :
+
+|===
+|Ingredient |Substitutes
+
+|salt
+|sea salt, table salt, coarse salt
+
+|butter
+|margarine, whipping cream, salted butter
+
+|pepper
+|garlic, parsley, paprika
+
+|garlic
+|pepper, white onion, pepper flakes
+
+|sugar
+|granulated sugar, light brown sugar, dark brown sugar
+|===
+
+==== Lien avec le module DB
+Pour utiliser ce modèle de substitution d'ingrédients, on a besoin de récupérer des recettes où l'utilisateur a _presque_ tous les ingrédients nécessaires, sauf quelque uns.
+
+Par exemple, la requête suivante retourne toutes les recettes où il manque UN SEUL ingrédient à l'utilisateur pour pouvoir la réaliser.
+----
+MATCH (u:User {email:"${user_email}"})
+WITH u AS user
+MATCH (i:Ingredient)
+WHERE NOT (user)-[:OWNS_INGREDIENT]->(e:Ingredient)
+WITH collect(e) as excluded
+MATCH (r:Recipe)-[:HAS_INGREDIENT]->(i)
+WITH excluded, r, collect(i) as ingredients, collect(id(i)) as ingredients_ids
+WHERE SINGLE (i in ingredients where i in excluded)
+RETURN id(r) as id, ingredients_ids SKIP ${start} LIMIT ${limit}
+----

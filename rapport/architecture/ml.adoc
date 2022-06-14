@@ -1,0 +1,22 @@
+=== Explication de l'algorithme ML
+
+Le but de ce modèle est d’apprendre *quels ingrédients sont substituables* pour quels autres, sans connaissances préalables en cuisine.
+
+La tâche est similaire à celle de l’apprentissage du sens des mots à partir du contexte, utilisée en Traitement du Langage Naturel (NLP) : Word2Vec.
+Word2Vec utilise l’hypothèse que "_deux mots utilisés dans le même contexte ont un sens proche_" pour générer un vecteur (liste de nombres) associé à chaque mot.
+
+C’est une technique éprouvée, capable de capturer sans aide humaine la similitude sémantique, grammaticale, les relations entre les mots etc.
+Par exemple, en additionnant/soustrayant les vecteurs :
+	"Roi – Homme + Femme" _donne_ "Reine"
+Reflet de l’intuition humaine "_Reine_ est à _Roi_ ce que _Femme_ est à _Homme_".
+
+Nous utilisons ici un corpus d’instructions tirées de recettes de cuisine pour générer une telle représentation : c’est le modèle Ingredient2Vec décrit dans [Veganaizer]. Ce modèle permet de trouver une liste de substituts plausibles.
+
+*Qu’en est-il des performances ?*
+L’implémentation donnée dans [Veganaizer] donne en première recommandation un substitut correct 73% du temps, et dans ces 5 premières recommandations 97% du temps.
+
+Outre la substitution d’ingrédients, ce modèle peut servir à adapter les instructions de la recette : _par exemple quand on substitue des olives aux oranges_
+"Éplucher les oranges." _devient_ "Dénoyauter les olives"
+Car "Éplucher – orange + olive" donne le vecteur "Dénoyauter".
+
+

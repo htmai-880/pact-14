@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/supply_name"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:id="@+id/change_supply_data"
+        android:layout_height="wrap_content"
+        android:layout_width= "40dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textStyle="bold"
+        android:text="~"
+        android:textSize="20dp"
+        android:layout_marginRight="15dp"/>
+
+    <Button
+        android:id="@+id/delete_supply"
+        android:layout_height="wrap_content"
+        android:layout_width= "40dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textStyle="bold"
+        android:text="x"
+        android:textSize="20dp"
+        android:layout_marginRight="15dp"/>
+
+
+</LinearLayout>

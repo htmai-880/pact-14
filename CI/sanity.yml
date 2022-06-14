@@ -1,0 +1,47 @@
+.dockerlint-test:
+  stage: sanity
+  allow_failure: true
+  image: projectatomic/dockerfile-lint
+
+  artifacts:
+    when: always
+    reports:
+      junit: dockerlint.xml
+
+  script:
+    - dockerfile_lint -f $TEST_PATH/Dockerfile -p -u > dockerlint.xml
+
+
+test-ai-dockerlint:
+  extends: .dockerlint-test
+  variables:
+    TEST_PATH: server/ai/test
+
+
+nginx-dockerlint:
+  extends: .dockerlint-test
+  variables:
+    TEST_PATH: server/nginx
+
+
+.pylint-test:
+  stage: sanity
+  allow_failure: true
+  image: python:3.9
+
+  artifacts:
+    when: always
+    reports:
+      junit: pylint.xml
+
+  before_script:
+    - pip install -r "$TEST_PATH/../requirements.txt"
+    - pip install pylint_junit
+
+  script:
+    -  pylint "$TEST_PATH/" > pylint.xml
+
+pylint-ai:
+  extends: .pylint-test
+  variables:
+    TEST_PATH: server/ai/app

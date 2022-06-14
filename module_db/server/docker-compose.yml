@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  neo4j:
+    image: neo4j
+#    entrypoint: ["/usr/bin/yes"]
+    expose:
+      - "7474"
+      - "7687"
+
+    environment:
+      NEO4JLABS_PLUGINS: '["apoc"]'
+      NEO4J_AUTH: ${DB_USER}/${DB_PASS}
+
+    volumes:
+      - type: volume
+        source: database
+        target: /data/
+        volume:
+          nocopy: true
+
+volumes:
+  database:

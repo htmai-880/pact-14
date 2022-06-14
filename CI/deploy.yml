@@ -1,0 +1,55 @@
+server-deploy:
+  stage: deploy
+
+  image:
+    name: quentinn42/docker-compose
+    entrypoint: [ "/bin/sh", "-c" ]
+
+  tags:
+    - docker
+    - prod
+
+  variables:
+    HOSTNAME: pact15.r2.enst.fr
+
+  environment:
+    name: production
+    url: http://${HOSTNAME}/
+    on_stop: server-stop
+
+  before_script:
+    - cd server
+    - docker-compose down
+    - docker images
+    - docker ps
+
+  script:
+    - docker-compose up -d --build
+
+  only:
+    - master
+  when: manual
+
+
+server-stop:
+  stage: deploy
+
+  image:
+    name: quentinn42/docker-compose
+    entrypoint: [ "/bin/sh", "-c" ]
+
+  tags:
+    - docker
+    - prod
+
+  environment:
+    name: production
+    action: stop
+
+  script:
+    - cd server
+    - docker-compose down
+
+  only:
+    - master
+  when: manual
